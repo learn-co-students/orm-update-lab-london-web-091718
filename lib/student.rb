@@ -64,7 +64,8 @@ class Student
       LIMIT 1
     SQL
     DB[:conn].execute(sql, name).map do |row|
-      Student.new(row[0], row[1], row[2])
+      # Student.new(row[0], row[1], row[2])
+      Student.new_from_db(row)
     end.first
   end
 
